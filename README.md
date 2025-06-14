@@ -98,7 +98,7 @@ curl/8.7.1
 
 ## Example responses
 
-```json
+```shell
 $ curl ip.dns.com/json | jq .
 {
   "ip": "51.158.xx.xx",
