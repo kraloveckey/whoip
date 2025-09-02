@@ -65,6 +65,8 @@ Place the following files in your Nginx folder:
 - [`/etc/nginx/ip-template.conf`](./ip-template.conf) — routes and responses.
 - [`/etc/nginx/conf.d/geoip2.conf`](./geoip2.conf) — GeoIP2 database bindings.
 - [`/etc/nginx/conf.d/ip.conf`](./ip.conf) — Nginx server block.
+- [`/etc/nginx/nginx.conf`](./nginx.conf) — the primary configuration file for Nginx.
+- [`/etc/nginx/cloudflare`](./cloudflare) — configuration file containing Cloudflare IP addresses for Nginx to use with the realip module and for setting up country checking by IP address.
 
 ## 🔍 API Endpoints
 
@@ -122,6 +124,13 @@ $ curl ip.dns.com
 $ ip.dns.com/ua
 
 Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36
+```
+
+```shell
+$ curl -s -H "X-Real-IP: 8.8.8.8" "ip.dns.com/country_name"      
+United States
+$ curl -s -H "X-Real-IP: 1.1.8.8" "ip.dns.com/country_name"
+China
 ```
 
 ---
